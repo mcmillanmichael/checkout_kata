@@ -116,5 +116,29 @@ namespace checkout_kata.test
         }
 
         #endregion
+
+        #region TestSpecialOffersAreApplied
+
+        /// <summary>
+        /// Test that special offers can be added to the checkout
+        /// </summary>
+        /// <remarks>GREEN</remarks>
+        [TestMethod]
+        public void TestSpecialOffersAreApplied()
+        {
+            // Arrange
+            ICheckout checkout = new Checkout();
+            checkout.AddItem(new CheckoutItem("B", 30));
+            checkout.AddItem(new CheckoutItem("A", 50));
+            checkout.AddItem(new CheckoutItem("B", 30));
+
+            // Act
+            checkout.AddSpecialOffer(new MultiBuySpecialOffer(2, "B", 45));
+
+            // Assert
+            Assert.AreEqual(1, checkout.SpecialOffers.Count);
+        }
+
+        #endregion
     }
 }
