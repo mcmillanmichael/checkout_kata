@@ -6,8 +6,15 @@ using System.Threading.Tasks;
 
 namespace checkout_kata
 {
+    /// <summary>
+    /// An item that can be added to a checkout, and bought.
+    /// </summary>
     public class CheckoutItem
     {
+        /// <summary>
+        /// Constructs and initialises a new instance of CheckoutItem.
+        /// </summary>
+        /// <param name="price"></param>
         public CheckoutItem(int price)
         {
             this._price = price;
