@@ -14,10 +14,20 @@ namespace checkout_kata
         /// <summary>
         /// Constructs and initialises a new instance of CheckoutItem.
         /// </summary>
-        /// <param name="price"></param>
-        public CheckoutItem(int price)
+        /// <param name="sku">The sku identifier for the item</param>
+        /// <param name="price">The price of the item</param>
+        public CheckoutItem(string sku, decimal price)
         {
             this._price = price;
+            this._sku = sku;
+        }
+
+        /// <summary>
+        /// The SKU identifier for this item.
+        /// </summary>
+        public string SKU
+        {
+            get { return _sku; }
         }
 
         /// <summary>
@@ -28,6 +38,7 @@ namespace checkout_kata
             get { return _price; }
         }
 
-        private int _price;
+        private decimal _price;
+        private string _sku;
     }
 }

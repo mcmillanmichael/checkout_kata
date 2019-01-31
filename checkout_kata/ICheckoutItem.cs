@@ -12,6 +12,11 @@ namespace checkout_kata
     public interface ICheckoutItem
     {
         /// <summary>
+        /// The SKU identifier for this item.
+        /// </summary>
+        string SKU { get; }
+
+        /// <summary>
         /// The price of this item.
         /// </summary>
         decimal Price { get; }

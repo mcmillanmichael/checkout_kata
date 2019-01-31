@@ -14,13 +14,13 @@ namespace checkout_kata
         /// <summary>
         /// A list of items.
         /// </summary>
-        List<CheckoutItem> Items { get; }
+        List<ICheckoutItem> Items { get; }
 
         /// <summary>
         /// Adds the given <paramref name="checkoutItem"/> to this checkout
         /// </summary>
         /// <param name="checkoutItem">The item to add.</param>
-        void AddItem(CheckoutItem checkoutItem);
+        void AddItem(ICheckoutItem checkoutItem);
         
         /// <summary>
         /// Sum up the values of <see cref="Items"/>
