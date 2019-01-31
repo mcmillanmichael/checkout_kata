@@ -7,7 +7,7 @@ namespace checkout_kata
     /// <summary>
     /// A checkout system.
     /// </summary>
-    public class Checkout
+    public class Checkout : ICheckout
     {
         /// <summary>
         /// A list of items.

@@ -16,7 +16,7 @@ namespace checkout_kata.test
         public void TestAddItemToCheckout()
         {
             // Arrange
-            var checkout = new Checkout();
+            ICheckout checkout = new Checkout();
 
             // Act
             checkout.AddItem(new CheckoutItem(50));
@@ -33,7 +33,7 @@ namespace checkout_kata.test
         public void TestCalculateTotalPrice()
         {
             // Arrange
-            var checkout = new Checkout();
+            ICheckout checkout = new Checkout();
             checkout.AddItem(new CheckoutItem(50));
             checkout.AddItem(new CheckoutItem(10));
 

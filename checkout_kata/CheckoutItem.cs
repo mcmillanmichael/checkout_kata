@@ -9,7 +9,7 @@ namespace checkout_kata
     /// <summary>
     /// An item that can be added to a checkout, and bought.
     /// </summary>
-    public class CheckoutItem
+    public class CheckoutItem : ICheckoutItem
     {
         /// <summary>
         /// Constructs and initialises a new instance of CheckoutItem.
