@@ -43,5 +43,28 @@ namespace checkout_kata.test
             // Assert
             Assert.AreEqual(60, total);
         }
+
+
+        /// <summary>
+        /// Test that an item can be identified by it's SKU letter
+        /// </summary>
+        /// <remarks>In a normal supermarket, things are identified using Stock Keeping Units, or SKUs. 
+        /// In our store, we’ll use individual letters of the alphabet(A, B, C, and so on).</remarks>
+        [TestMethod]
+        public void TestItemCanBeIdentifiedBySKU()
+        {
+            // Arrange
+            var checkout = new Checkout();
+
+            // Act
+            checkout.AddItem(new CheckoutItem("A", 50));
+            checkout.AddItem(new CheckoutItem("B", 30));
+            checkout.AddItem(new CheckoutItem("C", 20));
+            checkout.AddItem(new CheckoutItem("D", 15));
+
+            // Assert
+            Assert.AreEqual("A", checkout.Items[0].SKU);
+            Assert.AreEqual("D", checkout.Items[3].SKU);
+        }
     }
 }
