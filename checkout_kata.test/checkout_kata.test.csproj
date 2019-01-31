@@ -54,6 +54,8 @@
   <ItemGroup>
     <Compile Include="TestCheckout.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestCheckoutItem.cs" />
+    <Compile Include="TestMultiBuySpecialOffer.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\checkout_kata\checkout_kata.csproj">
