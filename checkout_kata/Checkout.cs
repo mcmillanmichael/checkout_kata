@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 
 namespace checkout_kata
@@ -33,6 +34,20 @@ namespace checkout_kata
             }
 
             Items.Add(checkoutItem);
+        }
+
+        /// <summary>
+        /// Sum up the values of <see cref="Items"/>
+        /// </summary>
+        /// <returns></returns>
+        public decimal CalculateTotal()
+        {
+            if (Items == null)
+            {
+                return 0;
+            }
+
+            return Items.Sum(item => item.Price);
         }
     }
 }
