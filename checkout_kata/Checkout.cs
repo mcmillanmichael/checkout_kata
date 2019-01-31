@@ -15,11 +15,17 @@ namespace checkout_kata
         public List<ICheckoutItem> Items { get; private set; }
 
         /// <summary>
+        /// A list of special offers.
+        /// </summary>
+        public List<ISpecialOffer> SpecialOffers { get; private set; }
+
+        /// <summary>
         /// Constructs and initialises a new instance of Checkout.
         /// </summary>
         public Checkout()
         {
             Items = new List<ICheckoutItem>();
+            SpecialOffers = new List<ISpecialOffer>();
         }
 
         /// <summary>
@@ -48,6 +54,20 @@ namespace checkout_kata
             }
 
             return Items.Sum(item => item.Price);
+        }
+
+        /// <summary>
+        /// Add a special offer to the checkout
+        /// </summary>
+        /// <param name="specialOffer">The special offer to add</param>
+        public void AddSpecialOffer(ISpecialOffer specialOffer)
+        {
+            if (specialOffer == null)
+            {
+                throw new ArgumentNullException("Checkout.AddItem: specialOffer");
+            }
+
+            SpecialOffers.Add(specialOffer);
         }
     }
 }

@@ -17,6 +17,11 @@ namespace checkout_kata
         List<ICheckoutItem> Items { get; }
 
         /// <summary>
+        /// A list of special offers.
+        /// </summary>
+        List<ISpecialOffer> SpecialOffers { get; }
+
+        /// <summary>
         /// Adds the given <paramref name="checkoutItem"/> to this checkout
         /// </summary>
         /// <param name="checkoutItem">The item to add.</param>
@@ -26,5 +31,11 @@ namespace checkout_kata
         /// Sum up the values of <see cref="Items"/>
         /// </summary>
         decimal CalculateTotal();
+
+        /// <summary>
+        /// Add a special offer to the checkout
+        /// </summary>
+        /// <param name="specialOffer">The special offer to add</param>
+        void AddSpecialOffer(ISpecialOffer specialOffer);
     }
 }

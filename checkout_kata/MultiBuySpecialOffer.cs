@@ -11,10 +11,12 @@ namespace checkout_kata
         /// Constructs and initialised a new instance of MultiBuySpecialOffer
         /// </summary>
         /// <param name="numberToQualify">The number of items that must be bought in for this special offer to be valid.</param>
+        /// <param name="sku">The sku identifier.</param>
         /// <param name="discountedPrice">The new discounted price.</param>
-        public MultiBuySpecialOffer(int numberToQualify, decimal discountedPrice)
+        public MultiBuySpecialOffer(int numberToQualify, string sku, decimal discountedPrice)
         {
             this._numberToQualify = numberToQualify;
+            this._sku = sku;
             this._discountedPrice = discountedPrice;
         }
 
@@ -34,7 +36,16 @@ namespace checkout_kata
             get { return _discountedPrice; }
         }
 
+        /// <summary>
+        /// The SKU identifier.
+        /// </summary>
+        public string SKU
+        {
+            get { return _sku; }
+        }
+
         private int _numberToQualify;
         private decimal _discountedPrice;
+        private string _sku;
     }
 }

@@ -21,5 +21,10 @@ namespace checkout_kata
         /// The new discounted price.
         /// </summary>
         decimal DiscountedPrice { get; }
+
+        /// <summary>
+        /// The SKU identifier.
+        /// </summary>
+        string SKU { get; }
     }
 }

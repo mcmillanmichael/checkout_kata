@@ -117,14 +117,14 @@ namespace checkout_kata.test
 
         #endregion
 
-        #region TestSpecialOffersAreApplied
+        #region TestSpecialOffersCanBeAdded
 
         /// <summary>
         /// Test that special offers can be added to the checkout
         /// </summary>
         /// <remarks>GREEN</remarks>
         [TestMethod]
-        public void TestSpecialOffersAreApplied()
+        public void TestSpecialOffersCanBeAdded()
         {
             // Arrange
             ICheckout checkout = new Checkout();
@@ -137,6 +137,44 @@ namespace checkout_kata.test
 
             // Assert
             Assert.AreEqual(1, checkout.SpecialOffers.Count);
+        }
+
+        /// <summary>
+        /// Test that special offers can be added to the checkout
+        /// </summary>
+        /// <remarks>RED</remarks>
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void TestSpecialOffersCanBeAdded_Null()
+        {
+            // Arrange
+            ICheckout checkout = new Checkout();
+
+            // Act
+            checkout.AddSpecialOffer(null);
+
+            // Assert
+            Assert.Fail("ArgumentNullException was not thrown.");
+        }
+
+
+        /// <summary>
+        /// Test that special offers can be added to the checkout
+        /// </summary>
+        /// <remarks>RED</remarks>
+        [TestMethod]
+        public void TestSpecialOffersCanBeAdded_NoSpecialOffers()
+        {
+            // Arrange
+            ICheckout checkout = new Checkout();
+            checkout.AddItem(new CheckoutItem("B", 30));
+            checkout.AddItem(new CheckoutItem("A", 50));
+            checkout.AddItem(new CheckoutItem("B", 30));
+
+            // Act
+
+            // Assert
+            Assert.AreEqual(0, checkout.SpecialOffers.Count);
         }
 
         #endregion
