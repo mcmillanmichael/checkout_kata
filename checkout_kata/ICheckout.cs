@@ -12,9 +12,9 @@ namespace checkout_kata
     public interface ICheckout
     {
         /// <summary>
-        /// A list of items.
+        /// A list of items, grouped by the SKU.
         /// </summary>
-        List<ICheckoutItem> Items { get; }
+        CheckOutItemCollection Items { get; }
 
         /// <summary>
         /// A list of special offers.

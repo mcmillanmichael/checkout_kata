@@ -40,5 +40,33 @@ namespace checkout_kata
 
         private decimal _price;
         private string _sku;
+
+        #region Object Overrides
+
+        /// <summary>
+        /// Checks that this instance's SKU matches the given instance's SKU
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public override bool Equals(object obj)
+        {
+            if (obj == null || obj.GetType() != this.GetType())
+            {
+                return false;
+            }
+
+            return SKU.Equals(((CheckoutItem)obj).SKU);
+        }
+
+        /// <summary>
+        /// Returns the hashcode of the SKU
+        /// </summary>
+        /// <returns></returns>
+        public override int GetHashCode()
+        {
+            return SKU.GetHashCode();
+        }
+
+        #endregion
     }
 }

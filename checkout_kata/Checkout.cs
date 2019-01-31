@@ -10,9 +10,9 @@ namespace checkout_kata
     public class Checkout : ICheckout
     {
         /// <summary>
-        /// A list of items.
+        /// A list of items, grouped by the SKU.
         /// </summary>
-        public List<ICheckoutItem> Items { get; private set; }
+        public CheckOutItemCollection Items { get; private set; }
 
         /// <summary>
         /// A list of special offers.
@@ -24,7 +24,9 @@ namespace checkout_kata
         /// </summary>
         public Checkout()
         {
-            Items = new List<ICheckoutItem>();
+            _calculator = new CheckoutCalculator();
+
+            Items = new CheckOutItemCollection();
             SpecialOffers = new List<ISpecialOffer>();
         }
 
@@ -53,7 +55,8 @@ namespace checkout_kata
                 return 0;
             }
 
-            return Items.Sum(item => item.Price);
+            return _calculator
+                .Calculate(Items, SpecialOffers);
         }
 
         /// <summary>
@@ -69,5 +72,7 @@ namespace checkout_kata
 
             SpecialOffers.Add(specialOffer);
         }
+
+        private CheckoutCalculator _calculator;
     }
 }

@@ -50,7 +50,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Checkout.cs" />
+    <Compile Include="CheckoutCalculator.cs" />
     <Compile Include="CheckoutItem.cs" />
+    <Compile Include="CheckOutItemCollection.cs" />
     <Compile Include="ICheckout.cs" />
     <Compile Include="ICheckoutItem.cs" />
     <Compile Include="ISpecialOffer.cs" />

@@ -89,34 +89,6 @@ namespace checkout_kata.test
 
         #endregion
 
-        #region TestItemCanBeIdentifiedBySKU
-
-        /// <summary>
-        /// Test that an item can be identified by it's SKU letter
-        /// </summary>
-        /// <remarks>In a normal supermarket, things are identified using Stock Keeping Units, or SKUs. 
-        /// In our store, we’ll use individual letters of the alphabet(A, B, C, and so on).</remarks>
-        [TestMethod]
-        public void TestItemCanBeIdentifiedBySKU()
-        {
-            // Arrange
-            ICheckout checkout = new Checkout();
-
-            // Act
-            checkout.AddItem(new CheckoutItem("A", 50));
-            checkout.AddItem(new CheckoutItem("B", 30));
-            checkout.AddItem(new CheckoutItem("C", 20));
-            checkout.AddItem(new CheckoutItem("D", 15));
-
-            // Assert
-            Assert.AreEqual("A", checkout.Items[0].SKU);
-            Assert.AreEqual("B", checkout.Items[1].SKU);
-            Assert.AreEqual("C", checkout.Items[2].SKU);
-            Assert.AreEqual("D", checkout.Items[3].SKU);
-        }
-
-        #endregion
-
         #region TestSpecialOffersCanBeAdded
 
         /// <summary>
@@ -199,6 +171,27 @@ namespace checkout_kata.test
 
             // Assert
             Assert.AreEqual(95, checkout.CalculateTotal());
+        }
+
+        /// <summary>
+        /// Test that special offers are properly applied, and the total is affected accordingly.
+        /// </summary>
+        /// <remarks>RED</remarks>
+        [TestMethod]
+        public void TestSpecialOffersAreApplied_WithAdditionalItemsNotCoveredByOffer()
+        {
+            // Arrange
+            ICheckout checkout = new Checkout();
+            checkout.AddItem(new CheckoutItem("B", 30));
+            checkout.AddItem(new CheckoutItem("A", 50));
+            checkout.AddItem(new CheckoutItem("B", 30));
+            checkout.AddItem(new CheckoutItem("B", 30));
+
+            // Act
+            checkout.AddSpecialOffer(new MultiBuySpecialOffer(2, "B", 45));
+
+            // Assert
+            Assert.AreEqual(125, checkout.CalculateTotal());
         }
 
         #endregion

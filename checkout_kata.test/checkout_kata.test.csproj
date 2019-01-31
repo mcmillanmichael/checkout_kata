@@ -54,7 +54,9 @@
   <ItemGroup>
     <Compile Include="TestCheckout.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestCheckoutCalculator.cs" />
     <Compile Include="TestCheckoutItem.cs" />
+    <Compile Include="TestCheckOutItemCollection.cs" />
     <Compile Include="TestMultiBuySpecialOffer.cs" />
   </ItemGroup>
   <ItemGroup>
