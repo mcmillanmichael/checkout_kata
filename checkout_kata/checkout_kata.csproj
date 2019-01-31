@@ -53,6 +53,8 @@
     <Compile Include="CheckoutItem.cs" />
     <Compile Include="ICheckout.cs" />
     <Compile Include="ICheckoutItem.cs" />
+    <Compile Include="ISpecialOffer.cs" />
+    <Compile Include="MultiBuySpecialOffer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

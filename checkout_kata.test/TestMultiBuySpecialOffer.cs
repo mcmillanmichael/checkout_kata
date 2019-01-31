@@ -28,7 +28,8 @@ namespace checkout_kata.test
             specialOffer = new MultiBuySpecialOffer(3, 130);
 
             // Assert
-            // ..
+            Assert.AreEqual(3, specialOffer.NumberOfItemsToQualify);
+            Assert.AreEqual(130, specialOffer.DiscountedPrice);
         }
 
         #endregion
